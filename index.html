@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interest-Free Credit Facility Agreement</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #faf8f5;
+      color: #1a1f2e;
+      line-height: 1.6;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e8e4dc;
+      padding: 1rem 1.5rem;
+    }
+    .header-content {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-left { display: flex; align-items: center; gap: 0.75rem; }
+    .icon-box {
+      width: 40px; height: 40px;
+      background: #1a1f2e;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .icon-box svg { width: 20px; height: 20px; color: white; }
+    .header-title { font-family: 'Cormorant Garamond', serif; font-size: 1.125rem; font-weight: 600; }
+    .header-subtitle { font-size: 0.75rem; color: #6b7280; }
+    .btn {
+      padding: 0.5rem 1rem;
+      border: 1px solid #e8e4dc;
+      background: white;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      cursor: pointer;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn:hover { background: #f5f3ef; }
+    .main { padding: 2rem 1rem; }
+    .document {
+      max-width: 850px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      padding: 3rem 4rem;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.03), 0 4px 6px rgba(0,0,0,0.04), 0 12px 24px rgba(0,0,0,0.06), 0 24px 48px rgba(0,0,0,0.08);
+    }
+    .doc-header { text-align: center; margin-bottom: 3rem; }
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 1rem;
+      background: rgba(26,31,46,0.08);
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: 2.25rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .gold-line { width: 80px; height: 4px; background: #c9a227; margin: 1rem auto 0; border-radius: 2px; opacity: 0.6; }
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 600;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #e8e4dc;
+    }
+    h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.125rem; font-weight: 500; margin: 1.5rem 0 0.75rem; }
+    p { margin-bottom: 1rem; line-height: 1.75; }
+    ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+    li { margin-bottom: 0.5rem; line-height: 1.6; }
+    hr { border: none; border-top: 2px solid #c9a227; margin: 2rem 0; opacity: 0.3; }
+    .gold { color: #c9a227; }
+    .muted { color: #6b7280; }
+    .sig-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 2rem; }
+    .sig-box { padding: 1.5rem; border: 1px solid #e8e4dc; border-radius: 8px; }
+    .sig-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: #6b7280; margin-bottom: 1rem; }
+    .sig-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; margin-bottom: 1.5rem; }
+    .sig-text { font-size: 0.875rem; color: #6b7280; }
+    .sig-details { margin-top: 1rem; }
+    .sig-details p { font-size: 0.875rem; margin: 0.25rem 0; }
+    .sig-details span { color: #6b7280; }
+    .footer { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #e8e4dc; text-align: center; }
+    .footer p { font-size: 0.875rem; color: #6b7280; margin: 0.5rem 0; }
+    .footer .ref { font-family: monospace; font-size: 0.75rem; }
+    .sig-input {
+      width: 100%;
+      border: none;
+      border-bottom: 2px dashed #e8e4dc;
+      background: transparent;
+      padding: 0.5rem 0;
+      font-family: 'Caveat', cursive;
+      font-size: 2.1rem;
+      color: #1a1f2e;
+      height: 3.2rem;
+      letter-spacing: 1px;
+    }
+    .sig-input:focus { outline: none; border-bottom-color: #c9a227; }
+    .sig-input::placeholder { font-family: 'Inter', sans-serif; font-size: 0.875rem; color: #9ca3af; }
+    .date-input {
+      border: 1px solid #e8e4dc;
+      background: white;
+      padding: 0.5rem;
+      font-family: inherit;
+      font-size: 0.875rem;
+      border-radius: 4px;
+      color: #1a1f2e;
+      width: 180px;
+    }
+    .submit-btn {
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      margin: 2rem auto 0;
+      padding: 1rem 2rem;
+      background: #1a1f2e;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .submit-btn:hover { background: #2d3348; transform: translateY(-1px); }
+    .submit-btn:active { transform: translateY(0); }
+    .submit-btn:disabled { background: #9ca3af; cursor: not-allowed; transform: none; }
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+      border: 2px solid #10b981;
+      border-radius: 12px;
+      margin-top: 2rem;
+    }
+    .success-message.show { display: block; animation: fadeIn 0.5s ease; }
+    .success-icon {
+      width: 60px;
+      height: 60px;
+      background: #10b981;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+    .success-icon svg { width: 32px; height: 32px; color: white; }
+    .success-message h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: #065f46;
+      margin-bottom: 0.5rem;
+    }
+    .success-message p { color: #047857; margin: 0; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 768px) {
+      .document { padding: 2rem 1.5rem; }
+      h1 { font-size: 1.75rem; }
+      .sig-grid { grid-template-columns: 1fr; }
+    }
+    @media print {
+      .header, .submit-btn { display: none; }
+      .document { box-shadow: none; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <div class="header-left">
+        <div class="icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+        </div>
+        <div>
+          <div class="header-title">Interest-Free Credit Facility Agreement</div>
+          <div class="header-subtitle">Referral Invitation Benefit – Official Document</div>
+        </div>
+      </div>
+      <button class="btn" onclick="window.print()">🖨️ Print</button>
+    </div>
+  </header>
+  <main class="main">
+    <article class="document">
+      <div class="doc-header">
+        <span class="badge">Official Document</span>
+        <h1>Interest-Free Credit Facility Agreement<br><small style="font-size:1.2rem;">Referral Invitation Benefit</small></h1>
+        <div class="gold-line"></div>
+      </div>
+
+      <h2>Parties</h2>
+      <div class="info-box">
+        <p><strong>Lender:</strong> HW INVEST SA<br>CHE-178.610.018 (Commercial Register No. CH-217.3.546.682-9)<br>(hereinafter referred to as the “Lender” or “HW INVEST”)</p>
+        <p><strong>Borrower:</strong> Thomas Bro<br>Trading Account No. 292221</p>
+        <p><strong>Date:</strong> <input type="date" class="date-input" id="agreementDate" value="2026-01-13"></p>
+      </div>
+
+      <hr>
+
+      <h2>Recitals</h2>
+      <p><strong>WHEREAS</strong>, the Lender operates an investment and trading platform;</p>
+      <p><strong>WHEREAS</strong>, the Borrower holds an active trading account (No. 292221) with the Lender;</p>
+      <p><strong>WHEREAS</strong>, as part of a referral/invitation program to reward loyal clients and promote platform growth, the Lender wishes to grant the Borrower an interest-free credit facility;</p>
+      <p><strong>WHEREAS</strong>, the Borrower accepts the credit subject to the terms and conditions set forth herein;</p>
+      <p class="muted" style="font-style:italic;">NOW, THEREFORE, the parties agree as follows:</p>
+
+      <hr>
+
+      <h2>1. Grant of Interest-Free Credit Facility</h2>
+      <h3>1.1</h3>
+      <p>The Lender hereby grants the Borrower an interest-free credit facility in the amount of <strong class="gold">USD 35,000 (thirty-five thousand United States Dollars)</strong> (the “Credit Amount”).</p>
+      <h3>1.2</h3>
+      <p>The Credit Amount shall be credited to the Borrower’s trading account No. 292221 as margin/loan balance, allowing the Borrower to utilize it for investment purposes in accordance with the Lender’s trading rules and risk policies.</p>
+      <h3>1.3</h3>
+      <p>No interest shall accrue or be charged on the Credit Amount during the term of this Agreement, provided the Borrower remains in full compliance with all terms herein.</p>
+
+      <hr>
+
+      <h2>3. Repayment and Release Conditions</h2>
+      <h3>3.1</h3>
+      <p>The Lender provides a credit facility (loan) of <strong class="gold">USD 35,000</strong> (the “Credit Amount”) to the trading account. The account remains fully restricted — no additional deposits or withdrawals of any kind are allowed — until the Credit Amount is fully repaid/covered.</p>
+
+      <h3>3.2</h3>
+      <p>The Borrower may actively trade during the restriction period. However, no withdrawals (of principal, profits or any other funds) are permitted until the Credit Amount is fully repaid.</p>
+
+      <h3>3.3</h3>
+      <p>The Credit Amount must be fully covered within one (1) month from the date the funds are credited to the account.</p>
+
+      <h3>3.4</h3>
+      <p>Repayment/coverage of the Credit Amount is achieved only when:</p>
+      <ul>
+        <li>The Lender has fully transferred credit of <strong>USD 35,000</strong> to the account (bringing the total credited amount to <strong>USD 35,000</strong>)</li>
+      </ul>
+
+      <h3>3.5</h3>
+      <p>Upon full coverage/repayment of the Credit Amount as defined in 3.4:</p>
+      <ul>
+        <li>The credit is automatically considered closed and fully settled</li>
+        <li>All restrictions are immediately and automatically lifted</li>
+        <li>The account becomes fully operational</li>
+        <li>The Borrower gains complete and unrestricted control over the entire account balance — including all remaining funds, profits, and the ability to make deposits and withdrawals without limitation</li>
+      </ul>
+
+      <h3>3.6</h3>
+      <p>There is no partial release of restrictions. The Credit Amount must be fully covered before any withdrawal rights are granted.</p>
+
+      <h3>3.7</h3>
+      <p>Once the Credit Amount is fully covered/repaid, the credit facility terminates automatically with no further repayment obligation on the Borrower.</p>
+
+      <hr>
+
+      <h2>Addendum – Lender’s Undertaking and Responsibility</h2>
+      <p>The Lender (HW INVEST SA) hereby undertakes full responsibility for ensuring that the trading account achieves at least 15% growth (USD 5,250) on the Credit Amount of USD 35,000 within the one-month period stipulated in clause 3.3. In the event this target is not met, regardless of cause or circumstance, the Lender shall, at its sole expense and without delay, credit the account with the full outstanding amount necessary to meet this obligation.</p>
+
+      <hr>
+
+      <h2>5. Term and Termination</h2>
+      <h3>5.1</h3>
+      <p>This Agreement commences on the date of crediting the Credit Amount to the account and continues until the earlier of: a) full coverage/repayment of the Credit Amount and lifting of restrictions; or b) termination by the Lender for cause (e.g., breach, regulatory reasons, or risk management).</p>
+      <h3>5.2</h3>
+      <p>The Lender reserves the right to revoke or reduce the Credit Amount at any time without prior notice in case of material breach, suspected misconduct, or regulatory requirements.</p>
+
+      <hr>
+
+      <h2>6. Entire Agreement</h2>
+      <p>This document, including any Addendum hereto, constitutes the entire agreement between the parties regarding the interest-free credit facility and supersedes all prior understandings.</p>
+
+      <hr>
+
+      <h2>Acceptance</h2>
+      <p>By electronically accepting these terms (e.g., via checkbox in the platform or email confirmation) or by utilizing the Credit Amount, the parties confirm that they have read, understood, and agree to be bound by this Agreement, including the Addendum.</p>
+
+      <div class="sig-grid">
+        <div class="sig-box">
+          <div class="sig-label">Lender</div>
+          <div class="sig-name">HW INVEST SA</div>
+          <input type="text" class="sig-input" id="lenderSignature" placeholder="Authorized Representative signature">
+          <div class="sig-text">Signature</div>
+          <div class="sig-details">
+            <p><span>Date:</span> <input type="date" class="date-input" id="lenderDate"></p>
+          </div>
+        </div>
+
+        <div class="sig-box">
+          <div class="sig-label">Borrower</div>
+          <div class="sig-name">Thomas Bro</div>
+          <input type="text" class="sig-input" id="borrowerSignature" placeholder="Your electronic or handwritten signature">
+          <div class="sig-text">Signature</div>
+          <div class="sig-details">
+            <p><span>Date:</span> <input type="date" class="date-input" id="borrowerDate"></p>
+          </div>
+        </div>
+      </div>
+
+      <button class="submit-btn" id="submitBtn" onclick="submitContract()">Accept & Submit Agreement</button>
+
+      <div class="success-message" id="successMessage">
+        <div class="success-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h3>Agreement Successfully Accepted!</h3>
+        <p>The agreement, including the Addendum, is now binding upon acceptance and/or utilization of the Credit Amount.</p>
+        <p style="margin-top:1rem; font-size:0.875rem;">Accepted by: <strong>HW INVEST SA</strong> (Lender) & <strong>Thomas Bro</strong> (Borrower)</p>
+      </div>
+
+      <div class="footer">
+        <p>This document is confidential and intended solely for the parties named herein.</p>
+        <p class="ref">Document Reference: CREDIT-FAC-REF-2026-001</p>
+      </div>
+    </article>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const dateInput = document.getElementById('agreementDate');
+      if (!dateInput.value) {
+        dateInput.value = '2026-01-13';
+      }
+    });
+
+    function submitContract() {
+      const agreementDate = document.getElementById('agreementDate').value;
+      const lenderSignature = document.getElementById('lenderSignature').value;
+      const lenderDate = document.getElementById('lenderDate').value;
+      const borrowerSignature = document.getElementById('borrowerSignature').value;
+      const borrowerDate = document.getElementById('borrowerDate').value;
+
+      if (!agreementDate || !lenderSignature || !lenderDate || !borrowerSignature || !borrowerDate) {
+        alert('Please fill in the agreement date, all signatures and signature dates.');
+        return;
+      }
+
+      document.getElementById('successMessage').classList.add('show');
+      document.getElementById('submitBtn').disabled = true;
+      document.getElementById('submitBtn').textContent = 'Agreement Accepted';
+      document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  </script>
+</body>
+</html>
